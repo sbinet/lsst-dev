@@ -26,7 +26,7 @@ RUN git clone git://dev.lsstcorp.org/LSST/DMS/qserv \
 
 ENV QSERV_SRC_DIR /build/lsst/qserv
 RUN export QSERV_SRC_DIR=/build/lsst/qserv
-RUN cd ${QSERV_SRC_DIR} && /bin/sh ./eupspkg/install.sh
+RUN cd ${QSERV_SRC_DIR} && /bin/sh ./eupspkg/newinstall-qserv.sh -H /opt/qserv-dev
 
 ## clean-up
 RUN /bin/rm -rf /build/lsst
