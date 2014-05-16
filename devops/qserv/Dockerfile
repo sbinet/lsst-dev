@@ -19,6 +19,8 @@ RUN yum install -y \
     ncurses-devel \
     numpy \
     scons \
+    tar \
+    which \
     zlib-devel
 
 # opt (doc): texlive-latex latex2html
