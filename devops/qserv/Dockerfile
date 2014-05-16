@@ -42,11 +42,11 @@ RUN cd ${BUILDROOT} && \
     ./newinstall-qserv-${QSERV_VERSION}.sh -H $INSTALL_BASE/qserv
 
 ## configure qserv
-RUN . ${INSTALL_BASE}/qserv/setup-qserv.sh
-RUN cd $INSTALL_BASE/qserv/stack/Linux64/qserv/${QSERV_VERSION}/admin && \
-    scons
+RUN . ${INSTALL_BASE}/qserv/setup-qserv.sh && \
+    cd $INSTALL_BASE/qserv/stack/Linux64/qserv/${QSERV_VERSION}/admin && \
+    scons || echo "fail"
 
 ## clean-up
 RUN /bin/rm -rf /build/lsst
 
-WORKDIR /opt/lsst-sw/qserv
+CMD ["qserv-start.sh"]
